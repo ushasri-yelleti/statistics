@@ -1,0 +1,286 @@
+1.
+a)
+         Field                                           Classification                                         Reason
+
+Course(DA, PFS, JFSS)                                   Nominal categorical                         Categories without any order 
+Satisfaction (Dissatisfied, Neutral, Satisfied)         Ordinal categorical                        Categories have a meaningful order
+Assignments completed (0, 1, 2...)                      Discrete numerical                            Countable whole numbers
+Task completion time                                    Continuous numerical                          Can have fractional values
+
+b)
+ids : 1001,1002,1003
+mean= 1001+1002+1003
+      --------------     => 3006
+           3                ----- => 1002 
+                              3
+
+
+2.
+a)
+population: all 240 Da students in the training centre
+Sample: the 30 students selected with the highest assessment scores
+
+b)
+inferential statistics because the analyst uses sample data to estimate the population mean
+
+c)
+the sample is not representative of all 240 students and the estimated mean may be higher than the actual population mean.
+
+
+
+3.
+a)
+mean = sum of observations
+       -------------------  => 12+15+15+18+40
+       no .of observations     --------------   => 100
+                                    5              --- => 20
+                                                    5
+
+meadian : middle value => meadian is 15
+
+mode : reapting value => mode is 15
+
+b) meadian is better because 40 is an unusually high value compared with the other values. It increases the mean to 20, while the median remains 15
+
+
+Section - B:
+
+4.
+a)  2,4,4,6
+mean: 2+4+4+6/4 => 16/4 => 4
+
+b)
+Deviation = x-mean         
+squared deviation = (x-mean)^2
+
+value x          Deviation = x-mean         squared deviation = (x-mean)^2
+(x)                    (x-4)                     (x-4)^2
+
+2                      2-4=-2                     4
+4                      4-4=0                      0
+4                      4-4=0                      0
+6                      6-4=2                      4
+
+total=                   0                        8
+
+
+c)
+i)population variance = squared deviation
+                        -----------------  => 4+0+0+4
+                             N                -------   => 8/4  => 2
+                                                 4
+
+
+ii)population standard deviation = root(2) => 1.414
+
+
+d)When the values are treated as a sample, we divide by n - 1 instead of N 
+  = s square = 8 / 4 -1 = 8 / 3 = 2.67
+
+
+
+5.
+
+4, 6, 7, 8, 9, 10, 12, 30
+
+Number of values: (n=8)
+
+(a) Calculate Q1 and Q3
+
+Formula for position: Position=(n-1)* p
+For Q1: Position =7 * 0.25 =1.75
+Values at positions 1 and 2 (zero-based) are 6 and 7.
+Q1=6+0.75(7-6) =6.75
+
+For Q3: Position=7*0.75=5.25
+Values at positions 5 and 6 are 10 and 12.
+Q3=10+0.25(12-10) = 10.50
+
+
+(b) Interquartile Range (IQR)
+
+IQR=Q3-Q1
+   =10.50-6.75 
+   =3.75
+
+(c) Lower and Upper fences
+
+Lower=Q1-1.5(IQR)
+     =6.75-1.5(3.75)=\boxed{1.125}
+
+Upper=Q3+1.5(IQR)
+     =10.50+1.5(3.75)=\boxed{16.125}
+
+(d) Outliers
+
+Values below 1.125 or above 16.125 are outliers.
+
+
+(e) Whisker endpoints
+- Lower whisker = 4
+- Upper whisker = 12
+
+
+6.
+
+import numpy as np
+x = np.array([1, 2, 3])
+print(round(np.var(x, ddof=0), 2)) # o/p : 0.67  --->ddof=0 calculates population variance.
+print(round(np.var(x, ddof=1), 2)) # o/p : 1.0   --->ddof=1 calculates sample variance.
+print(x[x > np.mean(x)].tolist())  # o/p : [3]   --->Mean = 2, so only 3 is greater than the mean.
+
+
+7.
+
+Observation	X (Practice hours)	Y (Assessment score)
+1	                1	                 20
+2	                2	                 40
+3	                3	                 60
+4	                4	                 80
+
+(a) 
+Calculate means
+
+ X=1+2+3+4
+   -------  = 10/4  = 2.5
+      4
+
+Y=20+40+60+80
+  -----------  = 200/4  =50
+      4       
+
+
+(b) Deviation table
+X	Y     X − Mean X    Y − Mean Y	Product
+1	20	 -1.5	       -30	  45
+2	40	 -0.5	       -10	  5
+3	60	  0.5	        10	  5
+4	80	  1.5	        30	  45
+total                     	         100
+
+(c) 
+Sample covariance
+Cov(X,Y)= product
+          -------  => 100
+           n-1        ---   => 100/3 =>33.33
+                      4-1
+
+
+(d) 
+Sample variance of X = 2.25+0.25+0.25+2.25 / 3 = 5 / 3 = 1.67
+Sample variance of Y = 900+100+100+900 / 3 = 2000 / 3 = 666.67
+
+(e) 
+r = 33.33 / route over 1.67 x 666.67 --> r = +1
+Pearson correlation=+1 (Perfect Positive Correlation)
+Interpretation: As practice hours increase, assessment scores also increase.
+
+
+8.
+A)
+ r = -0.85 has the stronger linear association because its absolute value is higher.
+The negative sign indicates a negative relationship: when one variable increases, the other tends to decrease.
+
+(B) 
+No, zero correlation does not mean that variables are completely unrelated.
+There may be a nonlinear relationship between the variables. Here, Y = X², which shows a quadratic relationship.
+
+(C)
+ Pearson correlation is undefined because the standard deviation of a constant column is zero.
+
+(D) 
+No, correlation does not imply causation.
+Other factors, such as teaching quality, prior knowledge and study habits, may also influence assessment scores.
+
+
+9.
+(A) 
+Bernoulli Distribution
+p = 0.2
+q = 1 - 0.2 = 0.8
+
+(B) 
+Binomial Distribution
+n = 6
+p = 0.5
+
+(C) 
+Poisson Distribution
+Lambda = 4 x 30 / 60 = 2
+
+
+10.
+A)
+Calculate P(X=2)
+By binomial formula: = 6 x 0.25 x 0.25 --> p(X=2) = 0.375
+Calculate P(X>=1) = 1 - p(X=0) = 0.9375
+
+B)
+No.of standard deviations from the mean (Z) = X - Mean / Standard deviation= 60 - 50 / 5 = 2
+Given: CDF(2) = 0.9772
+P(Y>60) = 1 - CDF(2)
+        = 1 - 0.9772499
+P(Y>60) = 0.0227
+
+c)
+Calcualte P(45<Y<55)
+Z1 = 45 - 50 / 5 = -1
+Z2 = 55 - 50 / 5 = 1
+Given: 
+CDF(-1) = 0.1586
+CDF(1) = 0.8413
+P(45<Y<55) = CDF(1) - CDF(-1) 
+           = 0.8413 - 0.1586 
+           = 0.6826
+
+
+D) 1)
+Binomial Distribution
+from scipy import stats
+stats.binom.sf(2, 4, 0.5)
+     
+o/p: np.float64(0.3125)
+
+2) Poisson Distribution
+stats.poisson.sf(3, 3)
+     
+o/p: np.float64(0.35276811121776874)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
